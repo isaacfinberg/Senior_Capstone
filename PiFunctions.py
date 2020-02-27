@@ -40,44 +40,44 @@ def DisplayImg( image_file ):
     im = Image.open( image_file )
     im.show()
     
-def three_one( prim1, prim2, p, sound_high, state, image_file ):
+def three_one( p1, p2, sound_high, state, image_file ):
     angle = 90
-    SetAngleDoor( angle, prim1, prim2, p )
+    SetAngleDoor( angle, p1, p2 )
     SetAngleWheel( angle, p, state )
-    DisplayImg( image_file )
-    PlayAudio( sound_high )
+    #DisplayImg( image_file )
+    #PlayAudio( sound_high )
 
-def one_two( sec1, sec2, p, sound_low, image_file ):
+def one_two( p1, p2, sound_low, image_file ):
     angle = 90
-    SetAngleDoor( angle, sec1, sec2, p )
-    DisplayImg( image_file )
-    PlayAudio( sound_low )
+    SetAngleDoor( angle, p1, p2 )
+    #DisplayImg( image_file )
+    #PlayAudio( sound_low )
     
-def two_one( sec1, sec2, p, sound_high, image_file ):
+def two_one( p1, p2, sound_high, image_file ):
     angle = 90
-    SetAngleDoor( angle, sec2, sec1, p )
-    DisplayImg( image_file )
-    PlayAudio( sound_high )
+    SetAngleDoor( angle, p2, p1 )
+    #DisplayImg( image_file )
+    #PlayAudio( sound_high )
     
-def two_three( prim1, prim2, sec1, sec2, p, sound_neutral, state, image_file ):
+def two_three( p1, p2, p3, p4, p5, sound_neutral, state, image_file ):
     angle = 90
-    SetAngleDoor( angle, sec2, sec1, p )
-    SetAngleWheel( angle, p, state )
-    SetAngleDoor( angle, prim2, prim1, p )
-    DisplayImg( image_file )
-    PlayAudio( sound_neutral )
+    SetAngleDoor( angle, p2, p1 )
+    SetAngleWheel( angle, p5, state )
+    SetAngleDoor( angle, p2, p1 )
+    #DisplayImg( image_file )
+    #PlayAudio( sound_neutral )
     
-def three_two( prim1, prim2, sec1, sec2, p, sound_low, state, image_file ):
+def three_two( p1, p2, p3, p4, p5, sound_low, state, image_file ):
     angle = 90
-    SetAngleDoor( angle, prim1, prim2, p )
-    SetAngleWheel( angle, p, state )
-    SetAngleDoor( angle, sec1, sec2, p )
-    DisplayImg( image_file )
-    PlayAudio( sound_low )
+    SetAngleDoor( angle, p1, p2 )
+    SetAngleWheel( angle, p5, state )
+    SetAngleDoor( angle, p3, p4 )
+    #DisplayImg( image_file )
+    #PlayAudio( sound_low )
     
-def one_three( prim1, prim2, p, sound_neutral, state, image_file ):
+def one_three( p1, p2, p3, sound_neutral, state, image_file ):
     angle = 90
-    SetAngleWheel( angle, p, state )
-    SetAngleDoor( angle, prim2, prim1, p )
-    DisplayImg( image_file )
-    PlayAudio( sound_neutral )
+    SetAngleWheel( angle, p3, state )
+    SetAngleDoor( angle, p2, p1 )
+    #DisplayImg( image_file )
+    #PlayAudio( sound_neutral )
