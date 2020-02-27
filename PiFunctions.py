@@ -6,7 +6,6 @@ from subprocess import Popen
 import os
 import sys
 from PIL import Image
-
 pi = pigpio.pi()
 
 def SetAngleDoor( pw1, servo1, servo2 ):
@@ -86,3 +85,8 @@ def one_three( prim1, prim2, wheel, sound_neutral, image_file ):
     SetAngleDoor( pw1, prim2, prim1 )
     #DisplayImg( image_file )
     #PlayAudio( sound_neutral )
+    
+def check_assembly_status( servos ):
+    for i in range( len( servos ) ):
+        if pi.get_servo_pulsewidth( servos[ i ] ) != 1500:
+            pi.set_servo_pulsewidth( servos[ i ], 1500 )

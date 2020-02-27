@@ -12,15 +12,11 @@ prim2 = 27
 sec1 = 22
 sec2 = 10
 wheel = 9
-
+servo_bootup = [ sec1, sec2, wheel prim1, prim2 ]
 GPIO.setmode( GPIO.BCM )
-GPIO.setwarnings( False )     
-
-pi.set_servo_pulsewidth( prim1, 1500 )
-pi.set_servo_pulsewidth( prim2, 1500 )
-pi.set_servo_pulsewidth( sec1, 1500 )
-pi.set_servo_pulsewidth( sec2, 1500 )
-pi.set_servo_pulsewidth( wheel, 1500 )
+GPIO.setwarnings( False ) 
+check_assembly_status( servo_bootup )
+            
 none = None
 btns = [ 14, 15, 18 ]
 check_mode = 0
