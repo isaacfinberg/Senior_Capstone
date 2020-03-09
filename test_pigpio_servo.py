@@ -1,4 +1,5 @@
 # Test pigpio library to stop servo motor jitter
+# Date: 02/27/2020 Status: Working
 
 import RPi.GPIO as GPIO
 import pigpio
