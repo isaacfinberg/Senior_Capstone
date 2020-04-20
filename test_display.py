@@ -3,5 +3,5 @@
 
 from subprocess import Popen
 
-movie = '/home/pi/Senior_Capstone/test_video.mp4'
+movie = '/home/pi/Downloads/Video fast forward.mp4'
 omxp = Popen( ['omxplayer', movie ] ) 

@@ -13,7 +13,7 @@ prim2 = 27
 sec1 = 22
 sec2 = 10
 wheel = 9
-servo_bootup = [ sec1, sec2, wheel prim1, prim2 ]
+servo_bootup = [ sec1, sec2, wheel, prim1, prim2 ]
 GPIO.setmode( GPIO.BCM )
 GPIO.setwarnings( False ) 
 check_assembly_status( servo_bootup )
