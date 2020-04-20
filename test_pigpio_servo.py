@@ -20,13 +20,13 @@ check_assembly_status( servo_bootup )
             
 none = None
 btns = [ 14, 15, 18 ]
-check_mode = 0
+check_mode = 3
 for i in range( len( btns ) ):
     GPIO.setup( btns[ i ], GPIO.IN, pull_up_down = GPIO.PUD_DOWN )
     GPIO.add_event_detect( btns[ i ], GPIO.RISING )
 while True:
     if GPIO.event_detected( btns[ 0 ] ):
-        if check_mode == 0:
+        if check_mode == 3:
             three_one( prim1, prim2, wheel, none, none )
             check_mode = 1
         if check_mode == 2:

@@ -11,8 +11,9 @@ pi = pigpio.pi()
 def SetAngleDoor( pw1, servo1, servo2 ):
     a1 = pi.get_servo_pulsewidth( servo1 )
     a2 = pi.get_servo_pulsewidth( servo2 )
+    print( a1, a2 )
     j = 0
-    for i in range( a1, pw1 ):
+    for i in range( a1, pw1+1 ):
         pi.set_servo_pulsewidth( servo1, i )
         pi.set_servo_pulsewidth( servo2, a2 - j )
         j += 1
@@ -20,7 +21,7 @@ def SetAngleDoor( pw1, servo1, servo2 ):
     
 def SetAngleWheel( pw, servo ):
     a = pi.get_servo_pulsewidth( servo )
-    if a == 1500:
+    if a == 1500 or a == 1501 or a == 1499:
         for i in range( a, pw ):
             pi.set_servo_pulsewidth( servo, i )
             sleep( .001 )
@@ -88,5 +89,6 @@ def one_three( prim1, prim2, wheel, sound_neutral, image_file ):
     
 def check_assembly_status( servos ):
     for i in range( len( servos ) ):
-        if pi.get_servo_pulsewidth( servos[ i ] ) != 1500:
-            pi.set_servo_pulsewidth( servos[ i ], 1500 )
+        pi.set_servo_pulsewidth( servos[ i ], 1500 )
+#         if pi.get_servo_pulsewidth( servos[ i ] ) != 1500:
+#             pi.set_servo_pulsewidth( servos[ i ], 1500 )
