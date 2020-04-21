@@ -30,7 +30,7 @@ def SetAngleWheel( pw, servo ):
             pi.set_servo_pulsewidth( servo, a - i )
             sleep( .001 )          
     
-def PlayAudio( audio_file ):
+def PlayAudio( audio_file, volume ):
     pygame.mixer.init()
     pygame.mixer.music.load( audio_file )
     pygame.mixer.music.play()
@@ -49,46 +49,44 @@ def three_one( prim1, prim2, wheel, sound_high, image_file ):
     pw = pw1
     SetAngleDoor( pw1, prim1, prim2 )
     SetAngleWheel( pw, wheel )
-    #DisplayImg( image_file )
-    #PlayAudio( sound_high )
+    DisplayImg( image_file )
+    PlayAudio( sound_high, 1 )
 
 def one_two( sec1, sec2, sound_low, image_file ):
     pw1 = 2300
     SetAngleDoor( pw1, sec1, sec2 )
-    #DisplayImg( image_file )
-    #PlayAudio( sound_low )
+    DisplayImg( image_file )
+    PlayAudio( sound_low, .7 )
     
 def two_one( sec1, sec2, sound_high, image_file ):
     pw1 = 1500
     SetAngleDoor( pw1, sec2, sec1 )
-    #DisplayImg( image_file )
-    #PlayAudio( sound_high )
+    DisplayImg( image_file )
+    PlayAudio( sound_high, 1 )
     
-def two_three( prim1, prim2, sec1, sec2, wheel, sound_neutral, image_file ):
+def two_three( prim1, prim2, sec1, sec2, wheel, sound_neutral, media_file_path ):
     pw1 = 1500
     SetAngleDoor( pw1, sec2, sec1 )
     SetAngleWheel( pw1, wheel )
     SetAngleDoor( pw1, prim2, prim1 )
-    #DisplayImg( image_file )
-    #PlayAudio( sound_neutral )
+    PlayMedia( media_file_path )
+    PlayAudio( sound_neutral, .5 )
     
 def three_two( prim1, prim2, sec1, sec2, wheel, sound_low, image_file ):
     pw1 = 2300
     SetAngleDoor( pw1, prim1, prim2 )
     SetAngleWheel( pw1, wheel )
     SetAngleDoor( pw1, sec1, sec2 )
-    #DisplayImg( image_file )
-    #PlayAudio( sound_low )
+    DisplayImg( image_file )
+    PlayAudio( sound_low, .7 )
     
-def one_three( prim1, prim2, wheel, sound_neutral, image_file ):
+def one_three( prim1, prim2, wheel, sound_neutral, media_file_path ):
     pw1 = 1500
     SetAngleWheel( pw1, wheel )
     SetAngleDoor( pw1, prim2, prim1 )
-    #DisplayImg( image_file )
-    #PlayAudio( sound_neutral )
+    PlayMedia( media_file_path )
+    PlayAudio( sound_neutral, .5 )
     
 def check_assembly_status( servos ):
     for i in range( len( servos ) ):
         pi.set_servo_pulsewidth( servos[ i ], 1500 )
-#         if pi.get_servo_pulsewidth( servos[ i ] ) != 1500:
-#             pi.set_servo_pulsewidth( servos[ i ], 1500 )
