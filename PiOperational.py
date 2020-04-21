@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import pigpio
-from time import sleep
 from PiFunctions import *
 
 pi = pigpio.pi()
